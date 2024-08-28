@@ -1,7 +1,6 @@
 import { PureComponent } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import moby from './words.js'
 
 const handleCardClick = (word, This) => {
   return (e) => {
@@ -21,6 +20,9 @@ class SynonymViewer extends PureComponent {
 
   getSynonyms = (phrase) => {
     const maxWords = 75;
+
+    if (window.moby === null) return;
+    moby = window.moby
 
     const r = moby[phrase].slice(0,maxWords)
 
