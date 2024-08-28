@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import ImportTools from "./ImportTools";
 import SaveTools from "./SaveTools";
+
 // form width, space optimization, select text
 function OutputTools({ onOptimChange, enableOptim, onWidthUpdate, width, onHighlightChange, handleEnableHighlight, enableHighlight }) {
   const widthAWD = 202.321;

@@ -1,6 +1,7 @@
 import { PureComponent } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import moby from './words.js'
 
 const handleCardClick = (word, This) => {
   return (e) => {
@@ -17,32 +18,19 @@ class SynonymViewer extends PureComponent {
       hidden: true,
     };
   }
-  getSynonyms = (phrase) => {
-    const xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = () => {
-      if (xhttp.readyState === 4 && xhttp.status === 200) {
-        const dat = JSON.parse(xhttp.responseText);
 
-        if (dat.length !== 0) {
-          this.setState({
-            synonyms: dat.map((item) => {
-              return item.word;
-            }),
-          });
-        } else {
-          this.setState({
-            synonyms: [],
-          });
-        }
-      }
-    };
+  getSynonyms = (phrase) => {
     const maxWords = 75;
-    xhttp.open(
-      "GET",
-      "https://api.datamuse.com/words?max=" + maxWords + "&ml=" + phrase,
-      true
-    );
-    xhttp.send();
+
+    const r = moby[phrase].slice(0,maxWords)
+
+    if (r.length !== 0) {
+      this.setState({
+        synonyms: r
+      })
+    } else {
+      this.setState({synonyms:[]})
+    }
   };
   componentDidMount() {
     this.getSynonyms(this.props.word);
