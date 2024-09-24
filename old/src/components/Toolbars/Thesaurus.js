@@ -22,7 +22,7 @@ class SynonymViewer extends PureComponent {
     const maxWords = 75;
 
     if (window.moby === null) return;
-    moby = window.moby
+    const moby = window.moby
 
     const r = moby[phrase].slice(0,maxWords)
 
@@ -34,9 +34,11 @@ class SynonymViewer extends PureComponent {
       this.setState({synonyms:[]})
     }
   };
+
   componentDidMount() {
     this.getSynonyms(this.props.word);
   }
+  
   componentDidUpdate(prevProps) {
     if (prevProps.word !== this.props.word) {
       this.getSynonyms(this.props.word);

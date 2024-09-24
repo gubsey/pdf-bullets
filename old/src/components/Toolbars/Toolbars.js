@@ -51,28 +51,28 @@ function OutputTools({ onOptimChange, enableOptim, onWidthUpdate, width, onHighl
             OPR
           </a>
         </div>
-        </div>
-        <a
-          className={
-            "control button is-dark" + (enableOptim ? "" : "is-outlined")
-          }
-          onClick={onOptimChange}
-          id="enableOptim"
-        >
-          Auto-Space
-        </a>
-        <a
-          className={
-            "control button is-dark" +
-            (enableHighlight ? "is-success" : "is-outlined")
-          }
-          onClick={() => { onHighlightChange(); handleEnableHighlight() }}
-          id="enableHighlight"
-        >
-          Show Duplicates
-        </a>
-
       </div>
+      <a
+        className={
+          "control button is-dark" + (enableOptim ? "" : "is-outlined")
+        }
+        onClick={onOptimChange}
+        id="enableOptim"
+      >
+        Auto-Space
+      </a>
+      <a
+        className={
+          "control button is-dark" +
+          (enableHighlight ? "is-success" : "is-outlined")
+        }
+        onClick={() => { onHighlightChange(); handleEnableHighlight() }}
+        id="enableHighlight"
+      >
+        Show Duplicates
+      </a>
+
+    </div>
   );
 }
 // normalize spaces
@@ -86,15 +86,10 @@ function InputTools({ onTextNorm }) {
 
 function Logo() {
   return (
-    <h1 className="title">
-      <span className="logo">AF </span>
-      <span className="logo">Bull</span>et
-      <span className="logo"> Sh</span>aping &amp;
-      <span className="logo"> i</span>teration
-      <span className="logo"> t</span>ool
-    </h1>
+    <h1 className="title">AF Bullet Shaping &amp; iteration tool</h1>
   );
 }
+
 function ThesaurusTools({ onHide }) {
   return (
     <a
